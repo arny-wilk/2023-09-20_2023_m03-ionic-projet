@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://devfest-nantes-2018-api.cleverapps.io'
 };
