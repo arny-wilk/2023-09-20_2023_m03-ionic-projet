@@ -9,8 +9,6 @@ import {HomeComponent} from "../home/home.component";
 })
 export class PresentateursComponent  implements OnInit {
 
-  component = PresentateurDetailsComponent;
-
   constructor() { }
 
   ngOnInit() {}

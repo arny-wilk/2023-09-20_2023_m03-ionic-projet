@@ -8,6 +8,6 @@ import {HomeComponent} from "../../pages/home/home.component";
 })
 export class NavComponent {
 
-  homePage = HomeComponent;
+  component = HomeComponent;
 
 }

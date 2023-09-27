@@ -10,8 +10,6 @@ import {PresentateursComponent} from "../../../pages/presentateurs/presentateurs
 export class HeroComponent  implements OnInit {
 
   titleHero!: string
-  sessionListComponent = SessionsComponent;
-  presentateurListComponent = PresentateursComponent;
 
   constructor() {
     this.titleHero = "Conférence";

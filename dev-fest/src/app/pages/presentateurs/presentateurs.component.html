@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-menu-button auto-hide="true"></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Présentateurs</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <h1>Liste des présentateurs</h1>
-  <ion-nav-link router-direction="forward" [component]="component">
-    <ion-button>Voir les détails du présentateur</ion-button>
-  </ion-nav-link>
+  <ion-button href="/presentateur-details" >Voir les détails du présentateur</ion-button>
 </ion-content>
