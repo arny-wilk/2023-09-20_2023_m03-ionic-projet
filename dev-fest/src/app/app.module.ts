@@ -17,6 +17,7 @@ import {SessionsComponent} from "./pages/sessions/sessions.component";
 import {NoteComponent} from "./components/note-components/note.component";
 import {PresentateurDetailsComponent} from "./pages/presentateur-details/presentateur-details.component";
 import {SessionDetailsComponent} from "./pages/session-details/session-details.component";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent
@@ -32,7 +33,7 @@ import {SessionDetailsComponent} from "./pages/session-details/session-details.c
     , HeroComponent
     , NoteComponent
     , ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
