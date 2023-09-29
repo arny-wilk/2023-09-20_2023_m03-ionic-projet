@@ -12,11 +12,12 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item *ngFor="let item of speakers">
-        {{ item.name }}
-      <ion-button expand="block" [id]="item.id" (click)="setOpen(true)">Voir bio</ion-button>
+      {{ item.name }}
+      <ion-button expand="block" [id]="id" (click)="setOpen(true, item)">Voir bio</ion-button>
     </ion-item>
   </ion-list>
   <ion-button href="presentateur-details">Voir les détails du présentateur</ion-button>
+</ion-content>
 
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
@@ -28,10 +29,9 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        {{ profile.shortBio }}
-        {{ profile.bio }}
-      </ion-content>
+        <p>
+          {{ profile.shortBio }}
+          {{ profile.bio }}
+        </p>
     </ng-template>
   </ion-modal>
-</ion-content>

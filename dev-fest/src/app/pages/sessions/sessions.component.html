@@ -1,3 +1,38 @@
-<p>
-  sessions works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-menu-button auto-hide="true"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sessions</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let item of sessions">
+      {{ item.title }}
+      <ion-button expand="block" [id]="" (click)="setOpen(true, item)">Voir info</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-button href="presentateur-details">Voir les détails du présentateur</ion-button>
+</ion-content>
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{ session.title }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <img alt="{{ session.titleMobile }}" src="{{ session.image }}"/>
+    <p>
+      {{ session.category }}
+      {{ session.tags }}
+    </p>
+  </ng-template>
+</ion-modal>

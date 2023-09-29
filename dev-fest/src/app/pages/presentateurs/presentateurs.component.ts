@@ -1,15 +1,14 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SpeakersHttpService} from "../../providers/speakers-service/speakers-http.service";
 import {Speaker} from "../../models/Speaker";
 import {PresentateursService} from "./providers/presentateurs.service";
-import {map, pipe} from "rxjs";
 
 @Component({
   selector: 'app-presentateurs',
   templateUrl: './presentateurs.component.html',
   styleUrls: ['./presentateurs.component.scss'],
 })
-export class PresentateursComponent implements OnInit, OnDestroy {
+export class PresentateursComponent implements OnInit {
 
   isModalOpen: boolean = false;
   speakers: Speaker[] = [];
@@ -21,32 +20,17 @@ export class PresentateursComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.servicePresentateur.get().subscribe((value) => {
-        this.speakers = Object.values(value)
+        this.speakers = Object.values(value);
       }
     );
-    if(this.isModalOpen){
-      this.selectSpeaker(this.id);
-    }
   }
 
-  ngOnDestroy() {
-    if(!this.isModalOpen){
-    }
-  }
-
-
-  setOpen(isOpen: boolean) {
+  setOpen(isOpen: boolean, profile?: Speaker) {
     this.isModalOpen = isOpen;
-  }
-
-  selectSpeaker(id: string) {
-    this.subjectBehaviour.entitiesSubject.subscribe(
-      pipe(
-        () => map(
-          () => this.profile = this.speakers
-              .filter(value => value.id === parseInt(id) ? value : null)
-              .reduce(previousValue => previousValue))));
-    return this.profile;
+    if (profile) {
+      this.profile = profile;
+      console.log(this.profile);
+    }
   }
 
 }

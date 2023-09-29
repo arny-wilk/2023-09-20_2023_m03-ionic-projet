@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Session} from "../../models/Session";
+import {SessionsHttpService} from "../../providers/sessions-service/sessions-http.service";
 
 @Component({
   selector: 'app-sessions',
@@ -7,8 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionsComponent  implements OnInit {
 
-  constructor() { }
+  isModalOpen: boolean = false;
+  sessions: Session[] = [];
+  id!: string;
+  session!: Session;
 
-  ngOnInit() {}
+  constructor(private serviceSession: SessionsHttpService) {}
+
+  ngOnInit() {
+    this.serviceSession.get().subscribe(
+      value => {
+        this.sessions = Object.values(value);
+      }
+    )
+  }
+
+  setOpen(isOpen: boolean, session?: Session) {
+    this.isModalOpen = isOpen;
+    if(session) {
+      this.session = session;
+    }
+  }
 
 }
